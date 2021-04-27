@@ -1,0 +1,89 @@
+/* Resetting */
+*{
+    margin:0;
+    padding:0
+}
+/* Setting the ul to display flex for horizontal alignment of lists  */
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    background-color:rgb(243, 163, 13);
+    height:56px;
+}
+/* Setting the header */
+h3{
+    color:white;
+    padding:10px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    
+}
+/* To use hover at header for bottom border animation      */
+h3:hover+div{
+    width:130px;
+}
+/* Applying border animation to submenu(NOTE:The plus operator after hover targert just the next sibling) */
+#about-us-dropdown li a:hover+div,#contact-us-dropdown li a:hover+div,#services-dropdown li a:hover+div{
+    width:75px;
+}
+/* Border animation properties */
+.border{
+    background-color:black;
+    height:3px;
+    width:0px;
+    transition:width 0.5s;
+}
+.border2{
+    background-color:black;
+    height:2px;
+    width:0px;
+    transition:width 0.5s;
+}
+/* In this i used the property of overflow and width transition for making the dropdown list.
+setting the overflow to auto will not show full list but just the header elemenrt or the main element of the list.I also used z-index and position absolute to give it preference over another elements. */
+.home,.about-us,.contact-us,.services{
+    height:32px;
+    width:130px;
+    overflow:hidden;
+    position:absolute;
+    top:-18px;
+    z-index: 1;
+    background-color:rgb(243, 163, 13);
+    transition:height 0.7s ease;
+    border:2px solid rgb(243, 163, 13);
+    border-radius: 5px;
+}
+/* Increasing the height of the div to display the full list */
+.about-us:hover,.contact-us:hover,.services:hover{
+    height: 164px;
+}
+/* Removing list style from all elements(NOTE:it will be applied to all list in the html file). */
+li{
+    list-style: none;
+}
+/* Applying position relative to li will allow us to use position absolute in div inside it. */
+.navbar-li{
+    position: relative;
+}
+/* Setting the ul inside the div to flex column to arrange the sub menu properly */
+#about-us-dropdown,#contact-us-dropdown,#services-dropdown{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-around;
+}
+/* Formatting the anchor tag inside submenu list */
+#about-us-dropdown li a,#contact-us-dropdown li a,#services-dropdown li a{
+    text-decoration: none;
+    padding:10px;
+    font-size:1rem;
+    font-weight: bold;
+}
+#about-us-dropdown li,#contact-us-dropdown li,#services-dropdown li{
+    margin:5px;
+}
+/* Using the icons for  home ,about,contact (optional..you can skip it) */
+.fas,.far{
+    margin:0px 5px;
+}
